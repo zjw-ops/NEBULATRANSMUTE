@@ -1,0 +1,91 @@
+{
+  "hash": "9c5dc9ce",
+  "configHash": "80f16ea6",
+  "lockfileHash": "86dc1790",
+  "browserHash": "68879b3d",
+  "optimized": {
+    "@angular/common": {
+      "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
+      "file": "@angular_common.js",
+      "fileHash": "c10cd080",
+      "needsInterop": false
+    },
+    "@angular/compiler": {
+      "src": "../../../../../../node_modules/@angular/compiler/fesm2022/compiler.mjs",
+      "file": "@angular_compiler.js",
+      "fileHash": "1019faff",
+      "needsInterop": false
+    },
+    "@angular/core": {
+      "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "cd3aef19",
+      "needsInterop": false
+    },
+    "@angular/forms": {
+      "src": "../../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
+      "file": "@angular_forms.js",
+      "fileHash": "cbb5573c",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "eebdb688",
+      "needsInterop": false
+    },
+    "jspdf": {
+      "src": "../../../../../../node_modules/jspdf/dist/jspdf.es.min.js",
+      "file": "jspdf.js",
+      "fileHash": "9884fd8a",
+      "needsInterop": false
+    },
+    "jszip": {
+      "src": "../../../../../../node_modules/jszip/dist/jszip.min.js",
+      "file": "jszip.js",
+      "fileHash": "f570e217",
+      "needsInterop": true
+    },
+    "pdfjs-dist": {
+      "src": "../../../../../../node_modules/pdfjs-dist/build/pdf.js",
+      "file": "pdfjs-dist.js",
+      "fileHash": "84d0ef6e",
+      "needsInterop": true
+    },
+    "three": {
+      "src": "../../../../../../node_modules/three/build/three.module.js",
+      "file": "three.js",
+      "fileHash": "4148c5b5",
+      "needsInterop": false
+    },
+    "turndown": {
+      "src": "../../../../../../node_modules/turndown/lib/turndown.browser.es.js",
+      "file": "turndown.js",
+      "fileHash": "954167da",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "html2canvas.esm-X6TT4LUV": {
+      "file": "html2canvas__esm-X6TT4LUV.js"
+    },
+    "purify.es-GLH5CDNL": {
+      "file": "purify__es-GLH5CDNL.js"
+    },
+    "index.es-2UGP3N2E": {
+      "file": "index__es-2UGP3N2E.js"
+    },
+    "chunk-VP76IFEI": {
+      "file": "chunk-VP76IFEI.js"
+    },
+    "chunk-A42N355C": {
+      "file": "chunk-A42N355C.js"
+    },
+    "chunk-WUUVWCMF": {
+      "file": "chunk-WUUVWCMF.js"
+    },
+    "chunk-VL5VAURS": {
+      "file": "chunk-VL5VAURS.js"
+    }
+  }
+}
