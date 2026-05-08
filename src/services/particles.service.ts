@@ -46,44 +46,49 @@ export class ParticleService {
   init(canvas: HTMLCanvasElement) {
     this.canvas = canvas;
     
-    // 1. Setup Renderer
-    this.renderer = new THREE.WebGLRenderer({
-      canvas: this.canvas,
-      alpha: true, 
-      antialias: true,
-      powerPreference: 'high-performance'
-    });
-    // PERFORMANCE: Cap pixel ratio for high DPI displays
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+    try {
+      // 1. Setup Renderer
+      this.renderer = new THREE.WebGLRenderer({
+        canvas: this.canvas,
+        alpha: true, 
+        antialias: true,
+        powerPreference: 'high-performance'
+      });
+      // PERFORMANCE: Cap pixel ratio for high DPI displays
+      this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-    // 2. Setup Scene
-    this.scene = new THREE.Scene();
-    
-    // 3. Setup Camera (aspect ratio will be set by onResize)
-    this.camera = new THREE.PerspectiveCamera(
-      60, 
-      window.innerWidth / window.innerHeight, 
-      0.1, 
-      1000
-    );
-    this.camera.position.z = 400;
-    this.camera.position.y = 100;
-    this.camera.lookAt(0, 0, 0);
+      // 2. Setup Scene
+      this.scene = new THREE.Scene();
+      
+      // 3. Setup Camera (aspect ratio will be set by onResize)
+      this.camera = new THREE.PerspectiveCamera(
+        60, 
+        window.innerWidth / window.innerHeight, 
+        0.1, 
+        1000
+      );
+      this.camera.position.z = 400;
+      this.camera.position.y = 100;
+      this.camera.lookAt(0, 0, 0);
 
-    // 4. Create Particles
-    this.createGalaxySystem();
+      // 4. Create Particles
+      this.createGalaxySystem();
 
-    // 5. Listeners
-    // PERFORMANCE: Use a debounced resize handler
-    window.addEventListener('resize', this.debouncedOnResize);
-    window.addEventListener('mousemove', this.onMouseMove.bind(this));
+      // 5. Listeners
+      // PERFORMANCE: Use a debounced resize handler
+      window.addEventListener('resize', this.debouncedOnResize);
+      window.addEventListener('mousemove', this.onMouseMove.bind(this));
 
-    // Set initial size correctly using the capped resolution logic
-    this.onResize();
+      // Set initial size correctly using the capped resolution logic
+      this.onResize();
 
-    // 6. Start Loop
-    this.then = Date.now(); // Initialize timer
-    this.animate();
+      // 6. Start Loop
+      this.then = Date.now(); // Initialize timer
+      this.animate();
+    } catch (error) {
+      console.error('Failed to initialize WebGL/Three.js:', error);
+      // Fallback: The app will continue to work, just without the particle background.
+    }
   }
 
   setProgress(p: number) {
@@ -99,9 +104,10 @@ export class ParticleService {
     if (!context) return new THREE.Texture();
 
     const gradient = context.createRadialGradient(16, 16, 0, 16, 16, 16);
+    // Make the core larger and more solid, with a tighter, sharper glow drop-off
     gradient.addColorStop(0, 'rgba(255, 255, 255, 1)');
-    gradient.addColorStop(0.2, 'rgba(255, 255, 255, 0.8)');
-    gradient.addColorStop(0.5, 'rgba(255, 255, 255, 0.2)');
+    gradient.addColorStop(0.4, 'rgba(255, 255, 255, 1)');
+    gradient.addColorStop(0.8, 'rgba(255, 255, 255, 0.4)');
     gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
 
     context.fillStyle = gradient;
@@ -152,13 +158,13 @@ export class ParticleService {
     geometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
 
     const material = new THREE.PointsMaterial({
-      size: 5,
+      size: 4,
       vertexColors: true,
       map: this.getTexture(),
       blending: THREE.AdditiveBlending,
       depthWrite: false,
       transparent: true,
-      opacity: 0.9,
+      opacity: 1.0,
       sizeAttenuation: true
     });
 

@@ -28,7 +28,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   
   targetFormat = signal<string>('Markdown');
   // Extended format list
-  formats = ['Markdown', 'Plain Text', 'HTML', 'JSON', 'PDF', 'EPUB'];
+  formats = ['Markdown', 'TXT', 'HTML', 'JSON', 'PDF', 'EPUB'];
 
   // Computed
   hasResult = computed(() => this.convertedContent().length > 0);
@@ -36,13 +36,13 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   downloadLabel = computed(() => {
     const f = this.targetFormat();
     switch(f) {
-      case 'Markdown': return 'DOWNLOAD .MD';
-      case 'Plain Text': return 'DOWNLOAD .TXT';
-      case 'HTML': return 'DOWNLOAD .HTML';
-      case 'JSON': return 'DOWNLOAD .JSON';
-      case 'PDF': return 'DOWNLOAD .PDF';
-      case 'EPUB': return 'DOWNLOAD .EPUB';
-      default: return 'DOWNLOAD FILE';
+      case 'Markdown': return '下载 .MD';
+      case 'TXT': return '下载 .TXT';
+      case 'HTML': return '下载 .HTML';
+      case 'JSON': return '下载 .JSON';
+      case 'PDF': return '下载 .PDF';
+      case 'EPUB': return '下载 .EPUB';
+      default: return '下载文件';
     }
   });
 
@@ -127,7 +127,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
       this.convertedContent.set(result);
       this.progress.set(100);
     } catch (error) {
-      alert('Local Processing Error.');
+      alert('本地处理出错。');
       console.error(error);
       this.progress.set(0);
     } finally {

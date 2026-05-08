@@ -10,12 +10,16 @@ export class LocalConverterService {
   private pdfLib: any;
 
   constructor() {
-    // Resolve the PDF.js library object correctly handling ESM/CJS interop
-    const ns = pdfjsLibNamespace as any;
-    this.pdfLib = ns.default || ns;
+    try {
+      // Resolve the PDF.js library object correctly handling ESM/CJS interop
+      const ns = pdfjsLibNamespace as any;
+      this.pdfLib = ns.default || ns;
 
-    if (this.pdfLib && this.pdfLib.GlobalWorkerOptions) {
-      this.pdfLib.GlobalWorkerOptions.workerSrc = 'https://esm.sh/pdfjs-dist@3.11.174/build/pdf.worker.min.js';
+      if (this.pdfLib && this.pdfLib.GlobalWorkerOptions) {
+        this.pdfLib.GlobalWorkerOptions.workerSrc = 'https://esm.sh/pdfjs-dist@3.11.174/build/pdf.worker.min.js';
+      }
+    } catch (error) {
+      console.error('Failed to initialize PDF.js:', error);
     }
   }
   

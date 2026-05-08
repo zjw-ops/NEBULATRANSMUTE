@@ -1,4 +1,4 @@
-import '@angular/compiler'; // Critical JIT import
+ // Critical JIT import
 import { bootstrapApplication } from '@angular/platform-browser';
 import { AppComponent } from './src/app.component';
 import { provideZonelessChangeDetection } from '@angular/core';

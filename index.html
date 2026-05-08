@@ -2,22 +2,21 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Nebula Converter AI</title>
+    <title>星云文档转换 AI</title>
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
       body {
         margin: 0;
         overflow-x: hidden;
-        /* Background is now handled by the app component/canvas to ensure visibility */
-        background-color: transparent; 
-        font-family: 'Rajdhani', sans-serif;
+        background-color: #000; 
+        font-family: 'Rajdhani', 'Noto Sans SC', sans-serif;
         color: white;
       }
       .font-orbitron {
-        font-family: 'Orbitron', sans-serif;
+        font-family: 'Orbitron', 'Noto Sans SC', sans-serif;
       }
       /* Custom scrollbar - Amber/White Theme */
       ::-webkit-scrollbar {
@@ -89,6 +88,7 @@
   }
 }
 </script>
+<link rel="stylesheet" href="/index.css">
 </head>
   <body class="selection-gold">
     <app-root></app-root>

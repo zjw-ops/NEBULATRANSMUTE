@@ -14,17 +14,17 @@
       <div class="flex items-center gap-2 mb-1">
         <div class="h-[2px] w-8 bg-amber-500 box-shadow-[0_0_10px_#f59e0b]"></div>
         <h1 class="font-orbitron text-2xl font-bold tracking-[0.2em] text-white drop-shadow-md">
-          NEBULA
+          NEBULA 星云
         </h1>
       </div>
-      <p class="text-[10px] font-rajdhani tracking-widest text-amber-500 uppercase ml-10 drop-shadow-sm">System V.2.5 // Online</p>
+      <p class="text-[10px] font-rajdhani tracking-widest text-amber-500 uppercase ml-10 drop-shadow-sm">系统 V.2.5 // 在线</p>
     </div>
     
     <div class="hidden md:flex flex-col items-end gap-1 text-[10px] font-rajdhani tracking-widest text-white/70">
       <div class="flex gap-2 bg-black/40 px-2 py-1 rounded border border-white/10">
-        <span>CPU: NORMAL</span>
+        <span>CPU: 正常</span>
         <span class="text-amber-500">///</span>
-        <span>MEM: OPTIMAL</span>
+        <span>内存: 极佳</span>
       </div>
     </div>
   </header>
@@ -36,7 +36,7 @@
     <div class="text-center h-24 flex flex-col justify-end pb-4 filter drop-shadow-lg">
       @if (isProcessing()) {
         <h2 class="text-4xl md:text-5xl font-orbitron font-bold text-white animate-pulse tracking-widest">
-          PROCESSING
+          处理中
         </h2>
         <div class="flex items-center justify-center gap-2 mt-2">
           <span class="text-amber-400 font-mono text-xl">{{ progress() }}%</span>
@@ -46,10 +46,10 @@
         </div>
       } @else {
         <h2 class="text-5xl md:text-6xl font-orbitron font-black text-white tracking-[0.1em] neon-text-gold">
-          TRANSMUTE
+          格式转换
         </h2>
         <p class="text-white/80 font-rajdhani tracking-[0.5em] text-sm uppercase mt-2 drop-shadow-md">
-          Ready for Input
+          等待输入
         </p>
       }
     </div>
@@ -85,9 +85,9 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
               </svg>
             </div>
-            <p class="font-orbitron text-lg text-white mb-2 drop-shadow-md">INITIALIZE UPLOAD</p>
+            <p class="font-orbitron text-lg text-white mb-2 drop-shadow-md">初始化上传</p>
             <p class="font-rajdhani text-white/60 text-xs tracking-widest uppercase">
-              Drop Document or Click to Browse
+              拖拽文档至此或点击浏览
             </p>
             <input #fileInput type="file" class="hidden" (change)="onFileSelected($event)" accept=".pdf,.txt,.jpg,.jpeg,.png,.md,.epub">
           </div>
@@ -101,7 +101,7 @@
                   <span class="font-mono text-sm text-white truncate max-w-[200px] drop-shadow-sm">{{ uploadedFile()?.name }}</span>
                </div>
                @if (!isProcessing() && !hasResult()) {
-                 <button (click)="reset()" class="text-xs text-red-400 hover:text-red-300 font-bold tracking-wider hover:underline">CANCEL</button>
+                 <button (click)="reset()" class="text-xs text-red-400 hover:text-red-300 font-bold tracking-wider hover:underline">取消</button>
                }
              </div>
 
@@ -109,7 +109,7 @@
                <!-- Configuration -->
                <div class="space-y-6">
                   <div class="grid grid-cols-1">
-                    <label class="text-[10px] text-amber-500 uppercase tracking-widest mb-2 font-bold drop-shadow-sm">Target Format</label>
+                    <label class="text-[10px] text-amber-500 uppercase tracking-widest mb-2 font-bold drop-shadow-sm">目标格式</label>
                     <div class="flex gap-2 flex-wrap">
                       @for (format of formats; track format) {
                         <button 
@@ -134,7 +134,7 @@
                   @if (isProcessing()) {
                     <div class="text-center py-4">
                       <p class="text-amber-400 font-rajdhani animate-pulse tracking-widest text-sm drop-shadow">
-                        ANALYZING MOLECULAR STRUCTURE...
+                        正在分析文档结构...
                       </p>
                     </div>
                   } @else {
@@ -142,7 +142,7 @@
                       (click)="startConversion()"
                       class="w-full py-4 mt-2 bg-white text-black font-bold font-orbitron tracking-[0.2em] rounded hover:bg-amber-400 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(251,191,36,0.6)]"
                     >
-                      ENGAGE
+                      开始转换
                     </button>
                   }
                </div>
@@ -151,7 +151,7 @@
                <div class="flex flex-col h-[350px]">
                  <!-- Preview Box: Needs some darkness (tint) to read text over stars, but NO blur -->
                  <div class="flex-1 bg-black/60 rounded border border-white/20 p-4 mb-4 overflow-auto custom-scrollbar relative">
-                   <div class="absolute top-2 right-2 text-[10px] text-amber-500/50 font-mono">PREVIEW</div>
+                   <div class="absolute top-2 right-2 text-[10px] text-amber-500/50 font-mono">预览</div>
                    <pre class="text-white/90 font-mono text-xs whitespace-pre-wrap font-thin leading-relaxed drop-shadow-sm">{{ convertedContent() }}</pre>
                  </div>
                  
@@ -163,7 +163,7 @@
                      {{ downloadLabel() }}
                    </button>
                    <button (click)="reset()" class="py-3 border border-white/20 bg-black/40 hover:bg-white/10 text-white font-bold font-orbitron tracking-widest rounded text-xs transition-colors">
-                     RESET
+                     重置
                    </button>
                  </div>
                </div>
@@ -177,9 +177,9 @@
   <!-- Footer Stats -->
   <footer class="absolute bottom-6 w-full flex justify-center pointer-events-none z-10">
     <div class="flex gap-8 text-[10px] text-white/40 font-rajdhani tracking-[0.2em] drop-shadow-md">
-      <span>LATENCY: 24MS</span>
-      <span>ENCRYPTION: AES-256</span>
-      <span>STATUS: CONNECTED</span>
+      <span>延迟: 24MS</span>
+      <span>加密: AES-256</span>
+      <span>状态: 已连接</span>
     </div>
   </footer>
 
